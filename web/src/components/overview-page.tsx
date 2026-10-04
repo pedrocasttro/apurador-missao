@@ -89,8 +89,8 @@ export function OverviewPage() {
   const { data, error, receivedAt } = useOverview();
   const { data: seats, error: seatError } = useSeatPerformance();
   const [othersExpanded, setOthersExpanded] = useState(false);
-  const topCandidates = data?.candidates.slice(0, 3) ?? [];
-  const otherCandidates = data?.candidates.slice(3) ?? [];
+  const topCandidates = data?.candidates.slice(0, 5) ?? [];
+  const otherCandidates = data?.candidates.slice(5) ?? [];
   const other: OverviewCandidate | null = otherCandidates.length ? ({
     candidateId: 'others', ballotNumber: '', name: 'Outros', party: null,
     votes: otherCandidates.reduce((sum, candidate) => sum + candidate.votes, 0),

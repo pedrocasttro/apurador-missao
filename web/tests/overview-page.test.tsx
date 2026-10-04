@@ -39,7 +39,7 @@ describe('Visão Geral com EA20 presidencial', () => {
     expect(candidateRow?.querySelector('[data-testid="candidate-photo-fallback"]')).not.toBeNull();
 
     const results = screen.getByRole('region', { name: 'Resultado presidencial resumido' });
-    expect(within(results).getAllByRole('listitem').map((item) => item.textContent)).toHaveLength(4);
+    expect(within(results).getAllByRole('listitem').map((item) => item.textContent)).toHaveLength(6);
     expect(screen.getByRole('heading', { name: 'Análise de desempenho' })).toBeInTheDocument();
   });
 
@@ -48,22 +48,26 @@ describe('Visão Geral com EA20 presidencial', () => {
     render(<AppThemeProvider><OverviewPage /></AppThemeProvider>);
 
     const results = await screen.findByRole('region', { name: 'Resultado presidencial resumido' });
-    const moreButton = await within(results).findByRole('button', { name: /Outros/ });
+    const moreButton = await within(results).findByRole('button', { name: /Mostrar 8 candidatos agrupados em Outros/ });
     expect(moreButton).toHaveAttribute('aria-expanded', 'false');
-    expect(within(results).getAllByRole('listitem')).toHaveLength(4);
+    const collapsedRows = within(results).getAllByRole('listitem');
+    expect(collapsedRows).toHaveLength(6);
+    expect(collapsedRows[4]).toHaveTextContent('CANDIDATO 9991');
+    expect(moreButton).toHaveTextContent('72.689.824 votos');
+    expect(moreButton).toHaveTextContent('71,98%');
 
     fireEvent.click(moreButton);
     expect(within(results).queryByRole('button', { name: /Mostrar \d+ candidatos agrupados em Outros/ })).not.toBeInTheDocument();
     expect(within(results).getAllByRole('listitem')).toHaveLength(13);
     expect(within(results).getByText('CANDIDATO 9993')).toBeInTheDocument();
-    for (const row of within(results).getAllByRole('listitem').slice(3)) {
+    for (const row of within(results).getAllByRole('listitem').slice(5)) {
       expect(row.textContent).toMatch(/\d+[,.]\d+%/);
       expect(within(row).getByRole('img')).toBeInTheDocument();
     }
 
     fireEvent.click(within(results).getByRole('button', { name: 'Recolher candidatos agrupados em Outros' }));
-    expect(within(results).getAllByRole('listitem')).toHaveLength(4);
-    expect(within(results).getByRole('button', { name: /Mostrar \d+ candidatos agrupados em Outros/ })).toHaveAttribute('aria-expanded', 'false');
+    expect(within(results).getAllByRole('listitem')).toHaveLength(6);
+    expect(within(results).getByRole('button', { name: /Mostrar 8 candidatos agrupados em Outros/ })).toHaveAttribute('aria-expanded', 'false');
   });
 
   it('mostra a falha da CDN sem apagar os dados de orientação', async () => {
