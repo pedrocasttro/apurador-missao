@@ -67,19 +67,37 @@ function assertSource(payload: Raw, expected: ResultSource, file: string): void 
 
 function publicBaseFromEndpoint(endpoint: string, source: ResultSource) {
   const url = new URL(endpoint);
-  const match = url.pathname.match(/^\/(simulado|oficial)\/([^/]+)\/([^/]+)\/(\d+)\/dados\/br\/br-c0001-e(\d+)-u\.json$/);
-  if (!match) throw new Error('URL TSE precisa apontar para EA20 presidencial do Brasil');
-  const environment = match[1];
-  const deployment = match[2];
+  const simulatedMatch = url.pathname.match(/^\/simulado\/([^/]+)\/([^/]+)\/(\d+)\/dados\/br\/br-c0001-e(\d+)-u\.json$/);
+  const officialMatch = url.pathname.match(/^\/oficial\/([^/]+)\/(\d+)\/dados\/br\/br-c0001-e(\d+)-u\.json$/);
+  if (!simulatedMatch && !officialMatch) throw new Error('URL TSE precisa apontar para EA20 presidencial do Brasil');
   const isSimulatedHost = url.hostname === 'resultados-sim.tse.jus.br';
-  if ((source === 'simulated') !== isSimulatedHost || (environment === 'simulado') !== isSimulatedHost) {
+  if ((source === 'simulated') !== isSimulatedHost || Boolean(simulatedMatch) !== isSimulatedHost) {
     throw new Error('URL TSE incompatível com o perfil configurado');
   }
   if (source === 'official' && url.hostname !== 'resultados.tse.jus.br') {
     throw new Error('perfil oficial precisa usar a CDN oficial do TSE');
   }
-  const root = `${url.origin}/${environment}/${deployment}`;
-  return { origin: url.origin, environment, deployment, root, cycle: match[3], electionCode: match[4], endpointElectionCode: match[5] };
+  if (simulatedMatch) {
+    const deployment = simulatedMatch[1];
+    return {
+      origin: url.origin,
+      environment: 'simulado',
+      deployment,
+      root: `${url.origin}/simulado/${deployment}`,
+      cycle: simulatedMatch[2],
+      electionCode: simulatedMatch[3],
+      endpointElectionCode: simulatedMatch[4],
+    };
+  }
+  return {
+    origin: url.origin,
+    environment: 'oficial',
+    deployment: null,
+    root: `${url.origin}/oficial`,
+    cycle: officialMatch![1],
+    electionCode: officialMatch![2],
+    endpointElectionCode: officialMatch![3],
+  };
 }
 
 function electionFromConfiguration(payload: unknown) {
