@@ -1,0 +1,38 @@
+.skip-link {
+  position: fixed;
+  z-index: 1500;
+  inset-block-start: 8px;
+  inset-inline-start: 8px;
+  transform: translateY(-160%);
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #0A0A0A;
+  color: #FFFFFF;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+html {
+  min-width: 320px;
+  scroll-padding-block-start: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+.president-vote-map-area:focus-visible {
+  outline: none;
+  stroke: #175CD3 !important;
+  stroke-width: 3px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
