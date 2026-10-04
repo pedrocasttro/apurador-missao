@@ -40,6 +40,45 @@ async function installTseFixtures() {
 afterEach(() => vi.unstubAllGlobals());
 
 describe('Aba Presidência', () => {
+  it('lista todos os candidatos com percentual quando o filtro está vazio e abre a apuração regional ao selecionar um', async () => {
+    await installTseFixtures();
+    const user = userEvent.setup();
+    render(<AppThemeProvider><PresidentPage /></AppThemeProvider>);
+
+    expect(await screen.findByText('DADOS SIMULADOS')).toBeInTheDocument();
+    const list = await screen.findByRole('region', { name: 'Lista de candidatos presidenciais' });
+    const rows = within(list).getAllByRole('button');
+    expect(rows).toHaveLength(13);
+    const candidateRow = within(list).getByRole('button', { name: /CANDIDATO 9995/ });
+    expect(candidateRow).toHaveTextContent('8,99%');
+
+    await user.click(candidateRow);
+
+    expect(screen.getByRole('combobox', { name: 'Candidato' })).toHaveValue('CANDIDATO 9995');
+    expect(await screen.findByRole('region', { name: 'Mapa da votação por UF' })).toBeInTheDocument();
+    expect(screen.queryByRole('region', { name: 'Lista de candidatos presidenciais' })).not.toBeInTheDocument();
+  }, 30_000);
+
+  it('ordena a lista sem candidato pelo maior valor da métrica selecionada', async () => {
+    await installTseFixtures();
+    const user = userEvent.setup();
+    render(<AppThemeProvider><PresidentPage /></AppThemeProvider>);
+
+    const list = await screen.findByRole('region', { name: 'Lista de candidatos presidenciais' });
+    const buttons = within(list).getAllByRole('button');
+    expect(buttons[0]).toHaveAccessibleName(/CANDIDATO 9999/);
+    expect(buttons[0]).toHaveTextContent('10,40%');
+    const percentages = buttons.map((button) => Number(within(button).getByTestId('candidate-metric-value').textContent!.replace('%', '').replace(',', '.')));
+    expect(percentages).toEqual([...percentages].sort((a, b) => b - a));
+
+    await user.selectOptions(screen.getByRole('combobox', { name: 'Métrica' }), 'totalVotes');
+    const sortedByVotes = within(list).getAllByRole('button');
+    expect(sortedByVotes[0]).toHaveAccessibleName(/CANDIDATO 9999/);
+    expect(sortedByVotes[0]).toHaveTextContent('10.503.573 votos');
+    const votes = sortedByVotes.map((button) => Number(within(button).getByTestId('candidate-metric-value').textContent!.replaceAll('.', '')));
+    expect(votes).toEqual([...votes].sort((a, b) => b - a));
+  }, 30_000);
+
   it('permite buscar um candidato e alternar entre percentual de votos válidos e votos totais com tooltip recíproca', async () => {
     await installTseFixtures();
     const user = userEvent.setup();

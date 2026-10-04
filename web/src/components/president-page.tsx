@@ -5,6 +5,7 @@ import Alert from '@mui/material/Alert';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import Chip from '@mui/material/Chip';
 import LinearProgress from '@mui/material/LinearProgress';
@@ -95,7 +96,14 @@ export function PresidentPage() {
           loading={false}
         />
 
-        {!selectedCandidate && <Alert severity="info">Selecione um candidato para consultar a votação na abrangência escolhida.</Alert>}
+        {!selectedCandidate && scope === 'state' && !stateCode && <Alert severity="info">Selecione uma UF para consultar a lista de candidatos e a apuração estadual.</Alert>}
+        {!selectedCandidate && result && <CandidateList
+          candidates={candidates}
+          result={result}
+          metric={metric}
+          geography={geographyLabel}
+          onSelect={(candidate) => setCandidateId(candidate.id)}
+        />}
         {selectedCandidate && scope === 'state' && !stateCode && <Alert severity="info">Selecione uma UF para consultar o resultado estadual.</Alert>}
 
         {selectedCandidate && scope === 'country' && result && <ResultCards
@@ -149,6 +157,86 @@ export function PresidentPage() {
   );
 }
 
+function CandidateList({
+  candidates, result, metric, geography, onSelect,
+}: {
+  candidates: Array<{ id: string; name: string; ballotNumber: string; party: string | null; photoUrl: string }>;
+  result: NonNullable<ReturnType<typeof usePresidentData>['result']>;
+  metric: Metric;
+  geography: string;
+  onSelect: (candidate: { id: string }) => void;
+}) {
+  const orderedCandidates = candidates.map((candidate) => ({
+    candidate,
+    votes: result.candidates.find((item) => item.id === candidate.id)?.votes ?? null,
+  })).sort((a, b) => {
+    if (a.votes === null && b.votes === null) return a.candidate.name.localeCompare(b.candidate.name, 'pt-BR');
+    if (a.votes === null) return 1;
+    if (b.votes === null) return -1;
+    const valueA = metric === 'totalVotes' ? a.votes : percentageOfValidVotes(a.votes, result.totalValidVotes);
+    const valueB = metric === 'totalVotes' ? b.votes : percentageOfValidVotes(b.votes, result.totalValidVotes);
+    if (valueA === null && valueB === null) return a.candidate.name.localeCompare(b.candidate.name, 'pt-BR');
+    if (valueA === null) return 1;
+    if (valueB === null) return -1;
+    return valueB - valueA || a.candidate.name.localeCompare(b.candidate.name, 'pt-BR');
+  });
+  return (
+    <Card variant="outlined" component="section" aria-label="Lista de candidatos presidenciais">
+      <CardContent sx={{ p: 2, '&:last-child': { pb: 2 } }}>
+        <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ alignItems: { sm: 'baseline' }, justifyContent: 'space-between', gap: 0.5, mb: 1.5 }}>
+          <Typography component="h2" variant="h2">Candidaturas presidenciais</Typography>
+          <Typography variant="caption" color="text.secondary">{geography} · {metric === 'totalVotes' ? 'votos totais' : 'percentual dos votos válidos'} · maior para menor</Typography>
+        </Stack>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, minmax(0, 1fr))' }, gap: 1 }}>
+          {orderedCandidates.map(({ candidate, votes }) => {
+            const percentage = votes === null ? null : percentageOfValidVotes(votes, result.totalValidVotes);
+            const percentageLabel = percentage === null ? '—' : `${percentageFormat.format(percentage)}%`;
+            const votesLabel = votes === null ? 'Votos indisponíveis' : `${numberFormat.format(votes)} votos`;
+            const metricLabel = metric === 'totalVotes' ? 'Votos totais' : '% dos válidos';
+            const metricValue = metric === 'totalVotes' ? (votes === null ? '—' : numberFormat.format(votes)) : percentageLabel;
+            return (
+              <Card key={candidate.id} variant="outlined">
+                <CardActionArea
+                  component="button"
+                  type="button"
+                  aria-label={`${candidate.name}, ${percentageLabel} dos votos válidos, ${votesLabel}. Selecionar candidato`}
+                  onClick={() => onSelect(candidate)}
+                  sx={{ display: 'flex', justifyContent: 'flex-start', minHeight: 80, p: 1.25, textAlign: 'left' }}
+                >
+                  <CandidateAvatar candidate={candidate} size={44} />
+                  <Stack sx={{ minWidth: 0, flex: 1, ml: 1.25 }}>
+                    <Typography variant="body1" sx={{ fontWeight: 600 }}>{candidate.name}</Typography>
+                    <Typography variant="caption" color="text.secondary">{candidate.party ?? 'Partido indisponível'}{candidate.ballotNumber ? ` · ${candidate.ballotNumber}` : ''}</Typography>
+                    <Typography variant="caption" color="text.secondary">{votesLabel}</Typography>
+                  </Stack>
+                  <Stack sx={{ alignItems: 'flex-end', ml: 1.5, flexShrink: 0 }}>
+                    <Typography variant="caption" color="text.secondary">{metricLabel}</Typography>
+                    <Typography data-testid="candidate-metric-value" sx={{ fontSize: 20, fontWeight: 700, lineHeight: 1.25 }}>{metricValue}</Typography>
+                  </Stack>
+                </CardActionArea>
+              </Card>
+            );
+          })}
+        </Box>
+      </CardContent>
+    </Card>
+  );
+}
+
+function CandidateAvatar({ candidate, size }: {
+  candidate: { name: string; photoUrl: string };
+  size: number;
+}) {
+  const [photoFailed, setPhotoFailed] = useState(false);
+  return (
+    <Avatar role="img" aria-label={`Foto de ${candidate.name}`} sx={{ width: size, height: size, bgcolor: 'action.selected', color: 'text.secondary' }}>
+      {photoFailed || !candidate.photoUrl
+        ? <UserRound aria-hidden data-testid="candidate-photo-fallback" size={22} />
+        : <Box component="img" src={candidate.photoUrl} alt="" onError={() => setPhotoFailed(true)} sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
+    </Avatar>
+  );
+}
+
 function ResultCards({
   geography, candidate, candidateVotes, metricLabel, displayedValue, tooltipValue, totalValidVotes, totalizedPercentage, context,
 }: {
@@ -162,7 +250,6 @@ function ResultCards({
   totalizedPercentage: number | null;
   context: React.ReactNode;
 }) {
-  const [photoFailed, setPhotoFailed] = useState(false);
   return (
     <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', lg: 'minmax(0, 1fr) minmax(0, 1.26fr)' }, gap: 1.75, alignItems: 'stretch' }}>
       <Card variant="outlined" component="section" aria-label="Resultado do candidato selecionado" sx={{ minHeight: 260 }}>
@@ -170,11 +257,7 @@ function ResultCards({
           <Typography component="h2" variant="h2">Votação</Typography>
           <Typography variant="caption" color="text.secondary">{geography} · primeiro turno</Typography>
           <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mt: 3 }}>
-            <Avatar role="img" aria-label={`Foto de ${candidate.name}`} sx={{ width: 44, height: 44, bgcolor: 'action.selected', color: 'text.secondary' }}>
-              {photoFailed || !candidate.photoUrl
-                ? <UserRound aria-hidden data-testid="candidate-photo-fallback" size={22} />
-                : <Box component="img" src={candidate.photoUrl} alt="" onError={() => setPhotoFailed(true)} sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
-            </Avatar>
+            <CandidateAvatar candidate={candidate} size={44} />
             <Stack sx={{ minWidth: 0 }}>
               <Typography variant="body1" sx={{ fontWeight: 600 }}>{candidate.name}</Typography>
               <Typography variant="caption" color="text.secondary">{candidate.party ?? 'Partido indisponível'}</Typography>

@@ -1,0 +1,27 @@
+{
+  "source": "TSE simulated CDN; f=s; development sample only",
+  "cycle": "ele2026",
+  "electionCode": "21272",
+  "area": "PR (UF)",
+  "generatedAt": "29/09/2026",
+  "files": {
+    "ea20-senado-pr-sim-2026.json": {
+      "url": "https://resultados-sim.tse.jus.br/simulado/simulado2026/ele2026/21272/dados/pr/pr-c0005-e021272-u.json",
+      "time": "16:37:14",
+      "cargo": "5"
+    },
+    "ea20-deputado-federal-pr-sim-2026.json": {
+      "url": "https://resultados-sim.tse.jus.br/simulado/simulado2026/ele2026/21272/dados/pr/pr-c0006-e021272-u.json",
+      "time": "16:31:40",
+      "cargo": "6"
+    },
+    "ea20-deputado-estadual-pr-sim-2026.json": {
+      "url": "https://resultados-sim.tse.jus.br/simulado/simulado2026/ele2026/21272/dados/pr/pr-c0007-e021272-u.json",
+      "time": "16:31:40",
+      "cargo": "7"
+    }
+  },
+  "syntheticValidation": {
+    "df": "The simulated EA20 request for df-c0008-e021272-u.json could not be downloaded because the TSE host did not resolve in this environment. The DF test clones the real simulated PR c0007 fixture, changes the cargo to 0008 and the UF to DF, and is explicitly synthetic. Live EA20 0008 validation remains pending."
+  }
+}

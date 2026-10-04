@@ -15,6 +15,7 @@ test('Visão Geral renderiza EA20 simulado nos temas desktop e mobile', async ({
     contentType: 'image/svg+xml',
     body: '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><circle cx="24" cy="24" r="24" fill="#FDBF35"/></svg>',
   }));
+  await page.route(/\/dados\/[a-z]{2}\/[a-z]{2}-c000[5678]-e\d+-u\.json$/, (route) => route.fulfill({ status: 503, contentType: 'application/json', body: '{}' }));
   const pageErrors: string[] = [];
   page.on('pageerror', (error) => pageErrors.push(error.message));
   await page.setViewportSize({ width: 1440, height: 960 });
@@ -36,10 +37,12 @@ test('Visão Geral renderiza EA20 simulado nos temas desktop e mobile', async ({
   await collapseButton.press('Space');
   await expect(page.getByRole('button', { name: /Mostrar 10 candidatos agrupados em Outros/ })).toHaveAttribute('aria-expanded', 'false');
   const presidentialCard = await page.getByRole('region', { name: 'Resultado presidencial resumido' }).boundingBox();
-  const seatsCard = await page.getByRole('region', { name: 'Cadeiras e desempenho do Missão' }).boundingBox();
+  const seatsCard = await page.getByRole('region', { name: 'Análise de desempenho do Missão' }).boundingBox();
   expect(presidentialCard).not.toBeNull();
   expect(seatsCard).not.toBeNull();
   expect(Math.abs(presidentialCard!.y - seatsCard!.y)).toBeLessThan(10);
+  await expect(page.getByRole('button', { name: 'PR: dados indisponíveis' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'DF: dados indisponíveis' })).toBeVisible();
   await page.screenshot({ path: testInfo.outputPath('overview-light.png'), fullPage: true });
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 

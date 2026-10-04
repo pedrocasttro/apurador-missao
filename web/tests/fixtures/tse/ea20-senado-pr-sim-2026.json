@@ -1,0 +1,105 @@
+
+{ "ele" : "21272", "t" : "1", "f" : "s", "sup" : "n", "tpabr" : "uf", "cdabr" : "pr", "dg" : "29/09/2026", "hg" : "16:37:31", "idg" : "176540573", "dt" : "29/09/2026", "ht" : "16:37:14", "dv" : "s", "tf" : "s", "and" : "f", "esae" : "n", "mnae" : [  ], "carg" : [ 
+{ "cd" : "5", "nmn" : "Senador", "nmm" : "Senador", "nmf" : "Senadora", "nv" : "2", "fed" : [ 
+{ "n" : "101", "sg" : "F 9995", "nm" : "FEDERAÇÃO 9995", "com" : "F 9995", "npar" : [ "60", "82", "87" ] }, 
+{ "n" : "102", "sg" : "Federacao teste para string longa especiais 99!@#$\"TSE\"", "nm" : "Federacao teste para string longa especiais 99!@#$\"TSE\"", "com" : "Federacao teste para string longa especiais 99!@#$\"TSE\"", "npar" : [ "64", "85" ] }, 
+{ "n" : "100", "sg" : "F 9996", "nm" : "FEDERAÇÃO 9996", "com" : "F 9996", "npar" : [ "69", "84" ] } ], "agr" : [ 
+{ "n" : "60144137", "nm" : "PARTIDO 9977", "tp" : "i", "com" : "P 9977", "vag" : "0", "par" : [ 
+{ "n" : "81", "sg" : "P 9977", "nm" : "PARTIDO 9977", "nfed" : "", "tvtn" : "0", "tvan" : "1159777", "cand" : [ 
+{ "n" : "812", "sqcand" : "41644727", "nm" : "CANDIDATO 8765", "nmu" : "CANDIDATO 8765", "dt" : "21/08/1986", "dvt" : "Anulado sub judice", "seq" : "5", "e" : "n", "st" : "Não eleito", "vap" : "590928", "pvap" : "4,26", "pvapn" : "4,263521791", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644728", "nm" : "CANDIDATO 8764", "nmu" : "CANDIDATO 8764", "sgp" : "P 9977" }, 
+{ "tp" : "s2", "sqcand" : "41644729", "nm" : "CANDIDATO 8763", "nmu" : "CANDIDATO 8763", "sgp" : "P 9977" } ] }, 
+{ "n" : "811", "sqcand" : "41644724", "nm" : "CANDIDATO 8768", "nmu" : "CANDIDATO 8768", "dt" : "20/06/1989", "dvt" : "Anulado sub judice", "seq" : "19", "e" : "n", "st" : "Não eleito", "vap" : "568849", "pvap" : "4,10", "pvapn" : "4,104222692", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644725", "nm" : "CANDIDATO 8767", "nmu" : "CANDIDATO 8767", "sgp" : "P 9977" }, 
+{ "tp" : "s2", "sqcand" : "41644726", "nm" : "CANDIDATO 8766", "nmu" : "CANDIDATO 8766", "sgp" : "P 9977" } ] } ] } ] }, 
+{ "n" : "60144109", "nm" : "PARTIDO 9998", "tp" : "i", "com" : "P 9998", "vag" : "0", "par" : [ 
+{ "n" : "57", "sg" : "P 9998", "nm" : "PARTIDO 9998", "nfed" : "", "tvtn" : "1148420", "tvan" : "1148420", "cand" : [ 
+{ "n" : "572", "sqcand" : "41644700", "nm" : "CANDIDATO 8934", "nmu" : "CANDIDATO 8934", "dt" : "25/03/1977", "dvt" : "Válido", "seq" : "13", "e" : "n", "st" : "Não eleito", "vap" : "575443", "pvap" : "4,15", "pvapn" : "4,151798138", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644701", "nm" : "CANDIDATO 8933", "nmu" : "CANDIDATO 8933", "sgp" : "P 9998" }, 
+{ "tp" : "s2", "sqcand" : "41644702", "nm" : "CANDIDATO 8932", "nmu" : "CANDIDATO 8932", "sgp" : "P 9998" } ] }, 
+{ "n" : "571", "sqcand" : "41644677", "nm" : "CANDIDATO 8937", "nmu" : "CANDIDATO 8937", "dt" : "22/02/1987", "dvt" : "Válido", "seq" : "15", "e" : "n", "st" : "Não eleito", "vap" : "572977", "pvap" : "4,13", "pvapn" : "4,134006047", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644698", "nm" : "CANDIDATO 8936", "nmu" : "CANDIDATO 8936", "sgp" : "P 9998" }, 
+{ "tp" : "s2", "sqcand" : "41644699", "nm" : "CANDIDATO 8935", "nmu" : "CANDIDATO 8935", "sgp" : "P 9998" } ] } ] } ] }, 
+{ "n" : "60144125", "nm" : "PARTIDO 9988", "tp" : "i", "com" : "P 9988", "vag" : "0", "par" : [ 
+{ "n" : "75", "sg" : "P 9988", "nm" : "PARTIDO 9988", "nfed" : "", "tvtn" : "1119399", "tvan" : "1119399", "cand" : [ 
+{ "n" : "752", "sqcand" : "41644002", "nm" : "CANDIDATO 8783", "nmu" : "CANDIDATO 8783", "dt" : "27/04/2003", "dvt" : "Válido", "seq" : "22", "e" : "n", "st" : "Não eleito", "vap" : "560097", "pvap" : "4,04", "pvapn" : "4,041077364", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644003", "nm" : "CANDIDATO 8782", "nmu" : "CANDIDATO 8782", "sgp" : "P 9988" }, 
+{ "tp" : "s2", "sqcand" : "41644004", "nm" : "CANDIDATO 8781", "nmu" : "CANDIDATO 8781", "sgp" : "P 9988" } ] }, 
+{ "n" : "751", "sqcand" : "41643999", "nm" : "CANDIDATO 8786", "nmu" : "CANDIDATO 8786", "dt" : "08/01/1956", "dvt" : "Válido", "seq" : "24", "e" : "n", "st" : "Não eleito", "vap" : "559302", "pvap" : "4,04", "pvapn" : "4,035341471", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644000", "nm" : "CANDIDATO 8785", "nmu" : "CANDIDATO 8785", "sgp" : "P 9988" }, 
+{ "tp" : "s2", "sqcand" : "41644001", "nm" : "CANDIDATO 8784", "nmu" : "CANDIDATO 8784", "sgp" : "P 9988" } ] } ] } ] }, 
+{ "n" : "60144122", "nm" : "PARTIDO 9979", "tp" : "i", "com" : "P 9979", "vag" : "0", "par" : [ 
+{ "n" : "61", "sg" : "P 9979", "nm" : "PARTIDO 9979", "nfed" : "", "tvtn" : "1173645", "tvan" : "1173645", "cand" : [ 
+{ "n" : "611", "sqcand" : "41643985", "nm" : "CANDIDATO 8922", "nmu" : "CANDIDATO 8922", "dt" : "28/06/1965", "dvt" : "Válido", "seq" : "6", "e" : "n", "st" : "Não eleito", "vap" : "589303", "pvap" : "4,25", "pvapn" : "4,251797481", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41643986", "nm" : "CANDIDATO 8921", "nmu" : "CANDIDATO 8921", "sgp" : "P 9979" }, 
+{ "tp" : "s2", "sqcand" : "41643987", "nm" : "CANDIDATO 8920", "nmu" : "CANDIDATO 8920", "sgp" : "P 9979" } ] }, 
+{ "n" : "612", "sqcand" : "41643988", "nm" : "CANDIDATO 8925", "nmu" : "CANDIDATO 8925", "dt" : "20/11/1928", "dvt" : "Válido", "seq" : "8", "e" : "n", "st" : "Não eleito", "vap" : "584342", "pvap" : "4,22", "pvapn" : "4,216004065", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41643989", "nm" : "CANDIDATO 8924", "nmu" : "CANDIDATO 8924", "sgp" : "P 9979" }, 
+{ "tp" : "s2", "sqcand" : "41643990", "nm" : "CANDIDATO 8923", "nmu" : "CANDIDATO 8923", "sgp" : "P 9979" } ] } ] } ] }, 
+{ "n" : "60144136", "nm" : "FEDERAÇÃO 9995", "tp" : "f", "com" : "P 9984 / P 9992 / P 9999", "tvtn" : "1169404", "tvan" : "1169404", "vag" : "0", "par" : [ 
+{ "n" : "82", "sg" : "P 9999", "nm" : "PARTIDO 9999", "nfed" : "101", "tvtn" : "1169404", "tvan" : "1169404", "cand" : [ 
+{ "n" : "821", "sqcand" : "41644718", "nm" : "CANDIDATO 8762", "nmu" : "CANDIDATO 8762", "dt" : "25/03/1982", "dvt" : "Válido", "seq" : "4", "e" : "n", "st" : "Não eleito", "vap" : "591199", "pvap" : "4,27", "pvapn" : "4,265477045", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644719", "nm" : "CANDIDATO 8761", "nmu" : "CANDIDATO 8761", "sgp" : "P 9999" }, 
+{ "tp" : "s2", "sqcand" : "41644720", "nm" : "CANDIDATO 8760", "nmu" : "CANDIDATO 8760", "sgp" : "P 9999" } ] }, 
+{ "n" : "822", "sqcand" : "41644721", "nm" : "Candidato teste para string longa e caracteres especiais 123!@#$\"TSE\"", "nmu" : "Candidato string 1234!@#$\"TSE\"", "dt" : "26/11/1985", "dvt" : "Válido", "seq" : "11", "e" : "n", "st" : "Não eleito", "vap" : "578205", "pvap" : "4,17", "pvapn" : "4,171725857", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644722", "nm" : "Candidato teste para string longa e caracteres especiais 123!@#$\"TSE\"", "nmu" : "Candidato string 1234!@#$\"TSE\"", "sgp" : "P 9999" }, 
+{ "tp" : "s2", "sqcand" : "41644723", "nm" : "Candidato teste para string longa e caracteres especiais 123!@#$\"TSE\"", "nmu" : "Candidato string 1234!@#$\"TSE\"", "sgp" : "P 9999" } ] } ] } ] }, 
+{ "n" : "60144175", "nm" : "FEDERAÇÃO 9996", "tp" : "f", "com" : "P 9985 / P 9993", "tvtn" : "1176941", "tvan" : "1176941", "vag" : "0", "par" : [ 
+{ "n" : "69", "sg" : "P 9985", "nm" : "PARTIDO 9985", "nfed" : "100", "tvtn" : "1176941", "tvan" : "1176941", "cand" : [ 
+{ "n" : "691", "sqcand" : "41644447", "nm" : "CANDIDATO 8798", "nmu" : "CANDIDATO 8798", "dt" : "20/10/1920", "dvt" : "Válido", "seq" : "2", "e" : "s", "st" : "Eleito", "vap" : "597509", "pvap" : "4,31", "pvapn" : "4,311003441", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644448", "nm" : "CANDIDATO 8797", "nmu" : "CANDIDATO 8797", "sgp" : "P 9985" }, 
+{ "tp" : "s2", "sqcand" : "41644449", "nm" : "CANDIDATO 8796", "nmu" : "CANDIDATO 8796", "sgp" : "P 9985" } ] }, 
+{ "n" : "692", "sqcand" : "41644450", "nm" : "CANDIDATO 8795", "nmu" : "CANDIDATO 8795", "dt" : "13/02/1991", "dvt" : "Válido", "seq" : "9", "e" : "n", "st" : "Não eleito", "vap" : "579432", "pvap" : "4,18", "pvapn" : "4,180578612", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644451", "nm" : "CANDIDATO 8794", "nmu" : "CANDIDATO 8794", "sgp" : "P 9985" }, 
+{ "tp" : "s2", "sqcand" : "41644452", "nm" : "CANDIDATO 8793", "nmu" : "CANDIDATO 8793", "sgp" : "P 9985" } ] } ] } ] }, 
+{ "n" : "60144113", "nm" : "PARTIDO 9987", "tp" : "i", "com" : "P 9987", "vag" : "0", "par" : [ 
+{ "n" : "79", "sg" : "P 9987", "nm" : "PARTIDO 9987", "nfed" : "", "tvtn" : "1170894", "tvan" : "1170894", "cand" : [ 
+{ "n" : "792", "sqcand" : "41644709", "nm" : "CANDIDATO 8771", "nmu" : "CANDIDATO 8771", "dt" : "08/08/1929", "dvt" : "Válido", "seq" : "3", "e" : "n", "st" : "Não eleito", "vap" : "592277", "pvap" : "4,27", "pvapn" : "4,273254772", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644710", "nm" : "CANDIDATO 8770", "nmu" : "CANDIDATO 8770", "sgp" : "P 9987" }, 
+{ "tp" : "s2", "sqcand" : "41644711", "nm" : "CANDIDATO 8769", "nmu" : "CANDIDATO 8769", "sgp" : "P 9987" } ] }, 
+{ "n" : "791", "sqcand" : "41644706", "nm" : "CANDIDATO 8774", "nmu" : "CANDIDATO 8774", "dt" : "24/06/1977", "dvt" : "Válido", "seq" : "10", "e" : "n", "st" : "Não eleito", "vap" : "578617", "pvap" : "4,17", "pvapn" : "4,174698420", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644707", "nm" : "CANDIDATO 8773", "nmu" : "CANDIDATO 8773", "sgp" : "P 9987" }, 
+{ "tp" : "s2", "sqcand" : "41644708", "nm" : "CANDIDATO 8772", "nmu" : "CANDIDATO 8772", "sgp" : "P 9987" } ] } ] } ] }, 
+{ "n" : "60144054", "nm" : "PARTIDO 9974", "tp" : "i", "com" : "P 9974", "vag" : "0", "par" : [ 
+{ "n" : "58", "sg" : "P 9974", "nm" : "PARTIDO 9974", "nfed" : "", "tvtn" : "0", "tvan" : "1137518", "cand" : [ 
+{ "n" : "582", "sqcand" : "41644689", "nm" : "CANDIDATO 8928", "nmu" : "CANDIDATO 8928", "dt" : "23/07/1969", "dvt" : "Anulado sub judice", "seq" : "12", "e" : "n", "st" : "Não eleito", "vap" : "578127", "pvap" : "4,17", "pvapn" : "4,171163090", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644690", "nm" : "CANDIDATO 8927", "nmu" : "CANDIDATO 8927", "sgp" : "P 9974" }, 
+{ "tp" : "s2", "sqcand" : "41644691", "nm" : "CANDIDATO 8926", "nmu" : "CANDIDATO 8926", "sgp" : "P 9974" } ] }, 
+{ "n" : "581", "sqcand" : "41644686", "nm" : "CANDIDATO 8931", "nmu" : "CANDIDATO 8931", "dt" : "09/05/1990", "dvt" : "Anulado sub judice", "seq" : "23", "e" : "n", "st" : "Não eleito", "vap" : "559391", "pvap" : "4,04", "pvapn" : "4,035983602", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644687", "nm" : "CANDIDATO 8930", "nmu" : "CANDIDATO 8930", "sgp" : "P 9974" }, 
+{ "tp" : "s2", "sqcand" : "41644688", "nm" : "CANDIDATO 8929", "nmu" : "CANDIDATO 8929", "sgp" : "P 9974" } ] } ] } ] }, 
+{ "n" : "60144126", "nm" : "Federacao teste para string longa especiais 99!@#$\"TSE\"", "tp" : "f", "com" : "P 9966 / P 9991", "tvtn" : "1140569", "tvan" : "1140569", "vag" : "0", "par" : [ 
+{ "n" : "64", "sg" : "P 9966", "nm" : "PARTIDO 9966", "nfed" : "102", "tvtn" : "1140569", "tvan" : "1140569", "cand" : [ 
+{ "n" : "642", "sqcand" : "41644008", "nm" : "CANDIDATO 8916", "nmu" : "CANDIDATO 8916", "dt" : "20/06/1981", "dvt" : "Válido", "seq" : "17", "e" : "n", "st" : "Não eleito", "vap" : "570519", "pvap" : "4,12", "pvapn" : "4,116271675", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644009", "nm" : "CANDIDATO 8915", "nmu" : "CANDIDATO 8915", "sgp" : "P 9966" }, 
+{ "tp" : "s2", "sqcand" : "41644010", "nm" : "CANDIDATO 8914", "nmu" : "CANDIDATO 8914", "sgp" : "P 9966" } ] }, 
+{ "n" : "641", "sqcand" : "41644005", "nm" : "CANDIDATO 8919", "nmu" : "CANDIDATO 8919", "dt" : "11/12/1979", "dvt" : "Válido", "seq" : "18", "e" : "n", "st" : "Não eleito", "vap" : "570050", "pvap" : "4,11", "pvapn" : "4,112887859", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644006", "nm" : "CANDIDATO 8918", "nmu" : "CANDIDATO 8918", "sgp" : "P 9966" }, 
+{ "tp" : "s2", "sqcand" : "41644007", "nm" : "CANDIDATO 8917", "nmu" : "CANDIDATO 8917", "sgp" : "P 9966" } ] } ] } ] }, 
+{ "n" : "60144135", "nm" : "PARTIDO 9970", "tp" : "i", "com" : "P 9970", "vag" : "0", "par" : [ 
+{ "n" : "71", "sg" : "P 9970", "nm" : "PARTIDO 9970", "nfed" : "", "tvtn" : "1154017", "tvan" : "1154017", "cand" : [ 
+{ "n" : "711", "sqcand" : "41644692", "nm" : "CANDIDATO 8792", "nmu" : "CANDIDATO 8792", "dt" : "21/11/1996", "dvt" : "Válido", "seq" : "7", "e" : "n", "st" : "Não eleito", "vap" : "587232", "pvap" : "4,24", "pvapn" : "4,236855299", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644693", "nm" : "CANDIDATO 8791", "nmu" : "CANDIDATO 8791", "sgp" : "P 9970" }, 
+{ "tp" : "s2", "sqcand" : "41644694", "nm" : "CANDIDATO 8790", "nmu" : "CANDIDATO 8790", "sgp" : "P 9970" } ] }, 
+{ "n" : "712", "sqcand" : "41644695", "nm" : "CANDIDATO 8789", "nmu" : "CANDIDATO 8789", "dt" : "08/05/1986", "dvt" : "Válido", "seq" : "20", "e" : "n", "st" : "Não eleito", "vap" : "566785", "pvap" : "4,09", "pvapn" : "4,089331015", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644696", "nm" : "CANDIDATO 8788", "nmu" : "CANDIDATO 8788", "sgp" : "P 9970" }, 
+{ "tp" : "s2", "sqcand" : "41644697", "nm" : "CANDIDATO 8787", "nmu" : "CANDIDATO 8787", "sgp" : "P 9970" } ] } ] } ] }, 
+{ "n" : "60144124", "nm" : "PARTIDO 9996", "tp" : "i", "com" : "P 9996", "vag" : "0", "par" : [ 
+{ "n" : "68", "sg" : "P 9996", "nm" : "PARTIDO 9996", "nfed" : "", "tvtn" : "1171260", "tvan" : "1171260", "cand" : [ 
+{ "n" : "681", "sqcand" : "41643993", "nm" : "CANDIDATO 8913", "nmu" : "CANDIDATO 8913", "dt" : "07/03/1922", "dvt" : "Válido", "seq" : "1", "e" : "s", "st" : "Eleito", "vap" : "599507", "pvap" : "4,33", "pvapn" : "4,325418931", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41643994", "nm" : "CANDIDATO 8912", "nmu" : "CANDIDATO 8912", "sgp" : "P 9996" }, 
+{ "tp" : "s2", "sqcand" : "41643995", "nm" : "CANDIDATO 8911", "nmu" : "CANDIDATO 8911", "sgp" : "P 9996" } ] }, 
+{ "n" : "682", "sqcand" : "41643996", "nm" : "CANDIDATO 8909", "nmu" : "CANDIDATO 8909", "dt" : "20/11/1985", "dvt" : "Válido", "seq" : "16", "e" : "n", "st" : "Não eleito", "vap" : "571753", "pvap" : "4,13", "pvapn" : "4,125174936", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41643997", "nm" : "CANDIDATO 8908", "nmu" : "CANDIDATO 8908", "sgp" : "P 9996" }, 
+{ "tp" : "s2", "sqcand" : "41643998", "nm" : "CANDIDATO 8907", "nmu" : "CANDIDATO 8907", "sgp" : "P 9996" } ] } ] } ] }, 
+{ "n" : "60144128", "nm" : "PARTIDO 9978", "tp" : "i", "com" : "P 9978", "vag" : "0", "par" : [ 
+{ "n" : "78", "sg" : "P 9978", "nm" : "PARTIDO 9978", "nfed" : "", "tvtn" : "1138247", "tvan" : "1138247", "cand" : [ 
+{ "n" : "782", "sqcand" : "41644015", "nm" : "CANDIDATO 8777", "nmu" : "CANDIDATO 8777", "dt" : "20/09/1969", "dvt" : "Válido", "seq" : "14", "e" : "n", "st" : "Não eleito", "vap" : "573134", "pvap" : "4,14", "pvapn" : "4,135138795", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644016", "nm" : "CANDIDATO 8776", "nmu" : "CANDIDATO 8776", "sgp" : "P 9978" }, 
+{ "tp" : "s2", "sqcand" : "41644017", "nm" : "CANDIDATO 8775", "nmu" : "CANDIDATO 8775", "sgp" : "P 9978" } ] }, 
+{ "n" : "781", "sqcand" : "41644012", "nm" : "CANDIDATO 8780", "nmu" : "CANDIDATO 8780", "dt" : "15/10/1977", "dvt" : "Válido", "seq" : "21", "e" : "n", "st" : "Não eleito", "vap" : "565113", "pvap" : "4,08", "pvapn" : "4,077267602", "vs" : [ 
+{ "tp" : "s1", "sqcand" : "41644013", "nm" : "CANDIDATO 8779", "nmu" : "CANDIDATO 8779", "sgp" : "P 9978" }, 
+{ "tp" : "s2", "sqcand" : "41644014", "nm" : "CANDIDATO 8778", "nmu" : "CANDIDATO 8778", "sgp" : "P 9978" } ] } ] } ] } ] } ], "s" : 
+{ "ts" : "29327", "st" : "29327", "pst" : "100,00", "pstn" : "100", "snt" : "0", "psnt" : "0,00", "psntn" : "0", "si" : "29327", "psi" : "100,00", "psin" : "100", "sni" : "0", "psni" : "0,00", "psnin" : "0", "sa" : "29327", "psa" : "100,00", "psan" : "100", "sna" : "0", "psna" : "0,00", "psnan" : "0" }, "e" : 
+{ "te" : "8824798", "est" : "8824798", "pest" : "100,00", "pestn" : "100", "esnt" : "0", "pesnt" : "0,00", "pesntn" : "0", "esi" : "8824798", "pesi" : "100,00", "pesin" : "100", "esni" : "0", "pesni" : "0,00", "pesnin" : "0", "esa" : "8824798", "pesa" : "100,00", "pesan" : "100", "esna" : "0", "pesna" : "0,00", "pesnan" : "0", "c" : "7513924", "pc" : "85,15", "pcn" : "85,145563672", "a" : "1310874", "pa" : "14,85", "pan" : "14,854436328" }, "v" : 
+{ "tv" : "15027848", "vvc" : "13860091", "pvvc" : "92,23", "pvvcn" : "92,229379749", "vv" : "11562796", "pvv" : "83,43", "pvvn" : "83,425108825", "vnom" : "11562796", "pvnom" : "100,00", "pvnomn" : "100", "van" : "0", "pvan" : "0,00", "pvann" : "0", "vansj" : "2297295", "pvansj" : "16,57", "pvansjn" : "16,574891175", "vb" : "578216", "pvb" : "3,85", "pvbn" : "3,847630080", "tvn" : "589541", "ptvn" : "3,92", "ptvnn" : "3,922990171", "vn" : "589541", "pvn" : "100,00", "pvnn" : "100", "vnt" : "0", "pvnt" : "0,00", "pvntn" : "0", "vsan" : "0", "vscv" : "0" } }

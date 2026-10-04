@@ -13,6 +13,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { UserRound } from 'lucide-react';
 import { useOverview } from '../data/tse/use-overview';
+import { useSeatPerformance } from '../data/tse/use-seat-performance';
 import type { OverviewCandidate } from '../data/tse/overview-client';
 
 const numberFormat = new Intl.NumberFormat('pt-BR');
@@ -86,6 +87,7 @@ function CandidateAvatar({ candidate }: { candidate: OverviewCandidate }) {
 
 export function OverviewPage() {
   const { data, error, receivedAt } = useOverview();
+  const { data: seats, error: seatError } = useSeatPerformance();
   const [othersExpanded, setOthersExpanded] = useState(false);
   const topCandidates = data?.candidates.slice(0, 3) ?? [];
   const otherCandidates = data?.candidates.slice(3) ?? [];
@@ -135,11 +137,32 @@ export function OverviewPage() {
             </CardContent>
           </Card>
 
-          <Card variant="outlined" component="section" aria-label="Cadeiras e desempenho do Missão">
+          <Card variant="outlined" component="section" aria-label="Análise de desempenho do Missão">
             <CardContent sx={{ p: 2 }}>
-              <Typography component="h2" variant="h2">Cadeiras e Missão</Typography>
-              <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>Não conectado nesta etapa</Typography>
-              <Typography variant="caption" color="text.secondary">Os dados de Câmara, Assembleias e desempenho partidário requerem outros recursos EA.</Typography>
+              <Typography component="h2" variant="h2">Análise de desempenho</Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>Cadeiras do Missão na parcial · Brasil</Typography>
+              {seats?.source === 'simulated' && <Chip size="small" color="warning" label="DADOS SIMULADOS" sx={{ mt: 1 }} />}
+              {seatError && <Alert severity="error" sx={{ mt: 1 }}>{seatError}</Alert>}
+              {!seats && !seatError && <Typography role="status" variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>Carregando cadeiras por UF…</Typography>}
+              <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(3, minmax(0,1fr))' }, gap: 1, mt: 1.5 }}>
+                {([
+                  ['Câmara Federal', 'federal'], ['Assembleias Legislativas', 'state'], ['Senado', 'senate'],
+                ] as const).map(([label, chamber]) => <Card key={chamber} variant="outlined" sx={{ p: 1.25 }}>
+                  <Typography variant="caption" color="text.secondary">{label}</Typography>
+                  <Typography component="p" sx={{ fontSize: 26, fontWeight: 700, lineHeight: 1.3 }}>{seats?.totals[chamber] ?? '—'}</Typography>
+                  <Typography variant="caption" color="text.secondary">cadeiras na parcial</Typography>
+                </Card>)}
+              </Box>
+              <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1.5 }}>Distribuição por UF · passe o cursor ou foque para ver os três cargos</Typography>
+              <Box component="ul" aria-label="Cadeiras do Missão por unidade da Federação" sx={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(52px, 1fr))', listStyle: 'none', p: 0, m: 0, mt: 0.75, gap: 0.5 }}>
+                {seats?.states.map((state) => {
+                  const label = 'chambers' in state
+                    ? `${state.uf}: Câmara Federal ${state.chambers.federal}, Assembleias Legislativas ${state.chambers.state}, Senado ${state.chambers.senate}`
+                    : `${state.uf}: dados indisponíveis`;
+                  return <Box component="li" key={state.uf}><ButtonBase title={label} aria-label={label} sx={{ width: '100%', minHeight: 36, borderRadius: 1, border: 1, borderColor: 'divider', typography: 'body2', fontWeight: 600 }}>{state.uf}</ButtonBase></Box>;
+                })}
+              </Box>
+              {seats && <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>Snapshot recebido {seats.receivedAt.toLocaleTimeString('pt-BR')}</Typography>}
             </CardContent>
           </Card>
         </Box>

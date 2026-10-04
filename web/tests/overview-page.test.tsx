@@ -22,7 +22,7 @@ describe('Visão Geral com EA20 presidencial', () => {
 
     expect(screen.getByRole('status', { name: 'Carregando resultados do TSE' })).toBeInTheDocument();
     expect(await screen.findByText('CANDIDATO 9999')).toBeInTheDocument();
-    expect(screen.getByText('DADOS SIMULADOS')).toBeInTheDocument();
+    expect(screen.getAllByText('DADOS SIMULADOS')).toHaveLength(2);
     expect(screen.getByText('Dados para desenvolvimento; não representam apuração corrente.')).toBeInTheDocument();
     expect(screen.getByText('100%')).toBeInTheDocument();
     expect(screen.getByText('100.982.116')).toBeInTheDocument();
@@ -40,7 +40,7 @@ describe('Visão Geral com EA20 presidencial', () => {
 
     const results = screen.getByRole('region', { name: 'Resultado presidencial resumido' });
     expect(within(results).getAllByRole('listitem').map((item) => item.textContent)).toHaveLength(4);
-    expect(screen.getByText('Não conectado nesta etapa')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Análise de desempenho' })).toBeInTheDocument();
   });
 
   it('expande e recolhe Outros mantendo os candidatos e percentuais individuais', async () => {
